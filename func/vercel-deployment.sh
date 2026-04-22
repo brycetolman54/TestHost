@@ -43,7 +43,7 @@ git checkout server > /dev/null 2>&1 || {
 echo -e "${BLUE}Replacing old files...${NC}"
 
 shopt -s extglob
-rm -rf !(dist|dists|vercel.json)
+rm -rf !(dist|dists)
 cp -rf dists/* . || {
   echo -e "  ${RED}No dists files${NC}"
   exit 1
