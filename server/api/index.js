@@ -1,4 +1,4 @@
-import db from "./db.js";
+const db = require("./db");
 
 export default function handler(req, res) {
   res.status(200).send("hello");
