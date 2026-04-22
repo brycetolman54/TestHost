@@ -1,3 +1,4 @@
 export default function handler(req, res) {
-  res.status(200).json({ message: "hello from server" });
+  res.statusCode = 200;
+  res.end("Hello from Vercel");
 }
