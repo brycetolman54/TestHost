@@ -3,6 +3,7 @@
 # 1. Build the project
 echo "Building..."
 cp -r web/* dist/
+sleep 5
 
 # 2. Copy the files into the web branch
 git checkout web
