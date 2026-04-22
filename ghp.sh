@@ -23,6 +23,10 @@ if ! git diff --cached --quiet; then
     echo -e "  ${RED}Main commit failed${NC}"
     exit 1
   }
+  git push > /dev/null 2>&1 || {
+    echo -e "  ${RED}Main push failed${NC}"
+    exit 1
+  }
 else
     echo -e "  ${GREEN}Nothing to commit on main${NC}"
 fi
