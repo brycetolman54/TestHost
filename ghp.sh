@@ -56,7 +56,7 @@ else
     exit 1
   }
 
-  git push origin web > /dev/null 2>&1 || {
+  git push > /dev/null 2>&1 || {
     echo -e "  ${RED}Push failed${NC}"
     exit 1
   }
