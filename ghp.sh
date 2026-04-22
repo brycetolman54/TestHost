@@ -8,7 +8,7 @@ cp -r web/* dist/
 git stash > /dev/null
 git checkout web
 
-git rm -rf *.html *.js *.css
+rm -rf *.html *.js *.css
 cp -rf dist/* .
 
 # 3. Commit and push the changes
