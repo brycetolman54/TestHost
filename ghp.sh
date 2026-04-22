@@ -17,18 +17,13 @@ cp -r web/* dist/ || { echo -e "  ${RED}Build failed${NC}"; exit 1; }
 # Switch branches
 echo -e "${BLUE}Switching branches...${NC}"
 
-git stash 2>&1 /dev/null
-git checkout web 2>&1 /dev/null || { echo -e "  ${RED}web branch missing${NC}"; exit 1; }
-
-if [ "$(git branch --show-current)" != "web" ]; then
-  echo -e "  ${RED}Not on web branch!${NC}"
-  exit 1
-fi
+git stash > /dev/null 2>&1
+git checkout web > /dev/null 2>&1 || { echo -e "  ${RED}web branch missing${NC}"; exit 1; }
 
 # Replace files
 echo -e "${BLUE}Replacing old files...${NC}"
 
-rm -f *.html *.js *.css 2>&1 /dev/null || true
+rm -f *.html *.js *.css
 cp -rf dist/* . || { echo -e "  ${RED}No dist files${NC}"; exit 1; }
 
 # Commit and push
@@ -39,14 +34,14 @@ if git diff --cached --quiet; then
   echo -e "  ${GREEN}Nothing to commit${NC}"
 else
   git commit -m "Deploy to GitHub Pages"
-  git push origin web 2>&1 /dev/null || { echo -e "  ${RED}Push failed${NC}"; exit 1; }
+  git push origin web > /dev/null 2>&1 || { echo -e "  ${RED}Push failed${NC}"; exit 1; }
 fi
 
 # Return to main
 echo -e "${BLUE}Returning to main...${NC}"
 
-git checkout main 2>&1 /dev/null || { echo -e "  ${RED}Failed to return to main${NC}"; exit 1; }
+git checkout main > /dev/null 2>&1 || { echo -e "  ${RED}Failed to return to main${NC}"; exit 1; }
 
-git stash pop 2>&1 /dev/null || true
+git stash pop > /dev/null 2>&1 || true
 
 echo -e "${GREEN}Done${NC}"
