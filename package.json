@@ -1,6 +1,7 @@
 {
-    "type": "module",
     "name": "server",
+    "private": true,
+    "type": "modcule",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
