@@ -1,5 +1,5 @@
 const db = {
-  message: "Hello there!",
+    message: "Hello there!",
 };
 
 export default db;
