@@ -42,7 +42,6 @@ git checkout server > /dev/null 2>&1 || {
 # Replace files
 echo -e "${BLUE}Replacing old files...${NC}"
 
-
 cp -rf dists/* . || {
   echo -e "  ${RED}No dists files${NC}"
   exit 1
