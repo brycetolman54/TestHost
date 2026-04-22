@@ -1,16 +1,13 @@
-import http from "http";
+import express from "express";
 
-const port = Number(
-  process.argv.length > 2 ? process.argv[2] : process.env.PORT || 3000,
-);
+const app = express();
 
-function handler(req, res) {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello");
-}
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
-const server = http.createServer(handler);
+const port = process.env.PORT || 3000;
 
-server.listen(port, () => {
-  console.log(`Server is listening on port http://localhost:${port}`);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
