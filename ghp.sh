@@ -49,7 +49,7 @@ echo -e "${BLUE}Committing and pushing...${NC}"
 
 git add .
 if git diff --cached --quiet; then
-  echo -e "  ${GREEN}Nothing to commit${NC}"
+  echo -e "  ${GREEN}Nothing to commit on web${NC}"
 else
   git commit -m "Deploying GitHub Pages" > /dev/null 2>&1 || {
     echo -e "  ${RED}Commit failed${NC}"
