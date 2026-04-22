@@ -10,8 +10,6 @@ NC='\033[0m'
 # Build
 echo -e "${BLUE}Building...${NC}"
 
-rm -rf dists
-mkdir -p dists
 cp -r server/* dists/ || { echo -e "  ${RED}Build failed${NC}"; exit 1; }
 
 # Commit main before switching
@@ -42,8 +40,7 @@ git checkout server > /dev/null 2>&1 || {
 # Replace files
 echo -e "${BLUE}Replacing old files...${NC}"
 
-shopt -s extglob
-rm -rf !(dist|dists)
+
 cp -rf dists/* . || {
   echo -e "  ${RED}No dists files${NC}"
   exit 1
