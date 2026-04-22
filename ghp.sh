@@ -4,16 +4,12 @@
 echo "Building..."
 cp -r web/* dist/
 
-branch=$(git branch --show-current)
-if [ "$branch" != "main" ]; then
-    echo "On Web"
-else
-    echo "not on web"
-fi
-
 # 2. Copy the files into the web branch
 git stash > /dev/null
 git checkout web
+
+ls
+sleep 5
 
 rm -rf *.html *.js *.css
 
@@ -23,7 +19,7 @@ cp -rf dist/* .
 rm -rf dist/
 
 # 3. Commit and push the changes
-git add .
+git add *.html *.js *.css
 git commit -am "Deploy to GitHub Pages"
 git push origin web
 
