@@ -12,10 +12,14 @@ else
 fi
 
 # 2. Copy the files into the web branch
+git stash > /dev/null
 git checkout web
+
 rm -rf *.html *.js *.css
+
 git checkout main -- dist/
 cp -rf dist/* .
+
 rm -rf dist/
 
 # 3. Commit and push the changes
@@ -25,3 +29,5 @@ git push origin web
 
 # 4. Return to main
 git checkout main
+git stash pop > /dev/null
+
