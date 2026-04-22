@@ -42,6 +42,11 @@ git checkout server > /dev/null 2>&1 || {
 # Replace files
 echo -e "${BLUE}Replacing old files...${NC}"
 
+for item in *; do
+  if [ "$item" != "dist" ] && [ "$item" != "dists" ]; then
+    rm -rf "$item"
+  fi
+done
 cp -rf dists/* . || {
   echo -e "  ${RED}No dists files${NC}"
   exit 1
