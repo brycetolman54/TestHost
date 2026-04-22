@@ -10,6 +10,8 @@ NC='\033[0m'
 # Build
 echo -e "${BLUE}Building...${NC}"
 
+rm -rf dists
+mkdir dists
 cp -r server/* dists/ || { echo -e "  ${RED}Build failed${NC}"; exit 1; }
 
 # Commit main before switching
