@@ -17,11 +17,14 @@ cp -r web/* dist/ || { echo -e "  ${RED}Build failed${NC}"; exit 1; }
 # Commit main before switching
 echo -e "${BLUE}Committing main branch...${NC}"
 
+git add .
 if ! git diff --cached --quiet; then
   git commit -am "Deploying GitHub Pages" > /dev/null 2>&1 || {
     echo -e "  ${RED}Main commit failed${NC}"
     exit 1
   }
+else
+    echo -e "  ${GREEN}Nothing to commit on main${NC}"
 fi
 
 # Switch branches
