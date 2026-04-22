@@ -1,3 +1,3 @@
-export default hander(req, res) {
+export default function hander(req, res) {
     res.status(200).json({ name: 'john doe' });
 })
