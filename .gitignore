@@ -1,2 +1,3 @@
 dist/
 dists/
+**/node_modules/
