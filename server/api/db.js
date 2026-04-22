@@ -1,3 +1,3 @@
-export const db = {
+export default const db = {
   message: "Hello there!",
 };
