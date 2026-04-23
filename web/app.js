@@ -1,4 +1,4 @@
-const baseURL = "https://text-host-roan.vercel.app/api/";
+const baseURL = "https://test-host-roan.vercel.app/api/";
 
 async function ping() {
     const res = await fetch(baseURL);
