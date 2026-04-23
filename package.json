@@ -1,6 +1,7 @@
 {
     "scripts": {
         "e": "nvim package.json",
+        "both": "npm run ver && npm run ghp",
         "ver": "bash func/vercel-deployment.sh",
         "nver": "nvim func/vercel-deployment.sh",
         "ghp": "bash func/github-pages-deployment.sh",
